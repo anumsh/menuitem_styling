@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,18 +13,13 @@
         <!-- my own css file -->
        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css')}}">
 </head>
+
 <body>
-<h1> New Menu Item </h1>
-
-<form action="{{url_for('newMenuItem', restaurant_id=restaurant_id )}}" method = 'POST'>
-
-<p>Name:</p>
-
-<input type='text' size='30' name='name'>
-
-<input type='submit' value='Create'>
-
-</form>
-
+    <h1> Are you sure you want to delete {{item.name}}? </h1>
+    <form action="{{ url_for('deleteMenuItem',restaurant_id = item.restaurant_id, menu_id=item.id)}}" method='post'>
+        <input type='submit' , value='Delete'>
+    </form>
+    <a href="{{ url_for('restaurantMenu', restaurant_id = item.restaurant_id)}}"> Cancel </a>
 </body>
+
 </html>
